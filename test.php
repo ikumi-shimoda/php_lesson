@@ -34,7 +34,7 @@ $kanto = ['東京都', '神奈川県', '栃木県', '千葉県'];
 echo $kanto[2] . 'と' . $kanto[3] . 'は関東地方の都道府県です。' . "\n";
 
 //q7
-$location = [
+$prefectures = [
     '東京都' => '新宿区',
     '神奈川県' => '横浜市',
     '千葉県' => '千葉市',
@@ -44,28 +44,28 @@ $location = [
     '茨城県' => '水戸市'
 ];
 
-foreach ($location as $key => $value) {
-    echo $value . "\n";
+foreach ($prefectures as $prefecture => $location) {
+    echo $location . "\n";
 }
 
 //q8
-foreach ($location as $key => $value) {
-    if ($key === '埼玉県') {
-        echo $key . 'の県庁所在地は' . $value . 'です。' . "\n";
+foreach ($prefectures as $prefecture => $location) {
+    if ($prefecture === '埼玉県') {
+        echo $prefecture . 'の県庁所在地は' . $location . 'です。' . "\n";
     }
 }
 
 //q9
-$location += array(
+$prefectures += array(
     '愛知県' => '名古屋市',
     '大阪府' => '大阪市'
 );
 
-foreach ($location as $key => $value) {
-    if ($key === '愛知県' || $key === '大阪府') {
-        echo $key . 'は関東地方ではありません。' . "\n";
+foreach ($prefectures as $prefecture => $location) {
+    if ($prefecture === '愛知県' || $prefecture === '大阪府') {
+        echo $prefecture . 'は関東地方ではありません。' . "\n";
     } else {
-        echo $key . 'の県庁所在地は' . $value . 'です。' . "\n";
+        echo $prefecture . 'の県庁所在地は' . $location . 'です。' . "\n";
     }
 }
 
@@ -151,16 +151,16 @@ $personalInfos = [
         'tel'  => '09055556666'
     ]
 ];
-echo $personalInfos[1]['name'] . 'の電話番号は' . $personalInfos[1]['tel'] . "です。" . "\n";
+echo $personalInfos[1]['name'] . 'の電話番号は' . $personalInfos[1]['tel'] . 'です。' . "\n";
 
 //q2-2
-foreach ($personalInfos as $key => $value) {
-    echo  ($key += 1) . "番目の" . $value['name'] . 'のメールアドレスは' . $value['mail'] . "で、電話番号は" . $value['tel'] . "です。" . "\n";
+foreach ($personalInfos as $personalInfo => $personalContent) {
+    echo  ($personalInfo += 1) . '番目の' . $personalContent['name'] . 'のメールアドレスは' . $personalContent['mail'] . 'で、電話番号は' . $personalContent['tel'] . 'です。' . "\n";
 }
 
 //q2-3
 $ageList = [25, 30, 18];
-foreach ($personalInfos as $key => $value) {
-    $personalInfos[$key]['age'] = $ageList[$key];
+foreach ($personalInfos as $personalInfo => $personalContent) {
+    $personalInfos[$personalInfo]['age'] = $ageList[$personalInfo];
 }
 var_dump($personalInfos);
